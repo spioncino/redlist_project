@@ -2,6 +2,7 @@ import telebot
 from secrets import secrets
 from telebot import types
 
+
 token = secrets.get('BOT_API_TOKEN')
 bot = telebot.TeleBot(token)
 
