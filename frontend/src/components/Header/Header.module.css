@@ -1,0 +1,88 @@
+.mainContainer {
+  width: 100vw;
+  height: 78px;
+  background-color: VAR(--main-green-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.areaContainer {
+  width: 1440px;
+  height: 78px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navContainer {
+  display: flex;
+  align-items: center;
+}
+
+.navContent {
+  margin-left: 82px;
+  width: 415px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.authTemp {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.authTemp p {
+  margin-right: 18px;
+}
+
+.mainLogo {
+  width: 98px;
+  height: 59px;
+  content: url('../../assets/MainLogo.png');
+}
+
+p {
+  color: white;
+  line-height: 16px;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.activeLink {
+  color: white;
+  text-decoration: underline;
+}
+
+.noActiveLink {
+  color: white;
+  text-decoration: none !important;
+}
+
+.menuButton {
+  width: 36px;
+  height: 36px;
+  background-color: transparent;
+  border: none;
+  display: none;
+}
+
+@media screen and (max-width: 1460px) {
+  .mainContainer {
+    padding: 29px;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .navContent {
+    display: none;
+  }
+  .authTemp {
+    display: none;
+  }
+  .menuButton {
+    display: block;
+  }
+}
