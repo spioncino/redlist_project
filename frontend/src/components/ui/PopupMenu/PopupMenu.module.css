@@ -1,0 +1,18 @@
+.noActive {
+  display: none;
+}
+
+.active {
+  margin-top: 140px;
+  position: absolute;
+  width: 100vw;
+  height: 50px;
+  background-color: VAR(--main-gray-color);
+  border-radius: 29px;
+}
+
+@media screen and (min-width: 801px) {
+  .active {
+    display: none;
+  }
+}
