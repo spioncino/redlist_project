@@ -40,7 +40,7 @@ def buttons(message):
         user_states[message.chat.id] = STATE_ASK_LOCATION
 
     elif user_state == STATE_ASK_LOCATION and message.content_type == 'location':
-        bot.send_message(message.chat.id, "Отлично! Теперь прикрепите фото вида.")
+        bot.send_message(message.chat.id, f"Отлично! Ты ввел координаты: {message.location.latitude}, {message.location.longitude}. Теперь прикрепите фото вида.")
         user_states[message.chat.id] = STATE_ASK_PHOTO
 
     elif user_state == STATE_ASK_PHOTO and message.content_type == 'photo':
