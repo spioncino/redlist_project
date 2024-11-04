@@ -32,6 +32,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
 }
 
 .authTemp p {
@@ -61,12 +62,21 @@ p {
   text-decoration: none !important;
 }
 
+a.onMainText {
+  line-height: 16px;
+  font-size: 16px;
+  font-weight: 500;
+  color: white !important;
+  text-decoration: none !important;
+}
+
 .menuButton {
   width: 36px;
   height: 36px;
   background-color: transparent;
   border: none;
   display: none;
+  cursor: pointer;
 }
 
 @media screen and (max-width: 1460px) {

@@ -1,4 +1,10 @@
 #root {
   --main-green-color: rgb(114, 178, 114);
   --main-gray-color: rgb(237, 237, 237);
+  --add-gray-color: rgb(179, 179, 179);
+}
+
+.mainOutlet {
+  display: flex;
+  justify-content: center;
 }
