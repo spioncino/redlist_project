@@ -1,0 +1,49 @@
+.mainContianer {
+  display: flex;
+  flex-direction: row;
+}
+
+.filters {
+  display: flex;
+  flex-direction: row;
+  gap: 6px;
+}
+
+.filtersCountShow {
+  padding: 12px;
+  border: 1px solid rgb(240, 240, 242);
+  border-radius: 8px;
+  background: rgb(255, 255, 255);
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 16px;
+}
+
+.filtersCountShow span {
+  margin-left: 9px;
+}
+
+.popupChooseParks {
+  position: absolute;
+  margin-left: 354px;
+  margin-top: 48px;
+}
+
+.popupChooseTypes {
+  position: absolute;
+  margin-left: 530px;
+  margin-top: 48px;
+}
+
+.popupChooseStatus {
+  position: absolute;
+  margin-left: 706px;
+  margin-top: 48px;
+}
+
+.popupChooseCount {
+  position: absolute;
+  margin-left: 882px;
+  margin-top: 48px;
+}

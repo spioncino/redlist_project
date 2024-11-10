@@ -3,3 +3,7 @@ export * from './LoginIcon.tsx';
 export * from './UnLoginIcon.tsx';
 export * from './MenuIcon.tsx';
 export * from './CrossCloseIcon.tsx';
+export * from './PointerArrowTypeOne.tsx';
+export * from './ArrowUp.tsx';
+export * from './ArrowDown.tsx';
+export * from './SearchIcon.tsx';

@@ -4,7 +4,7 @@ import { AuthTip } from '../../components';
 
 const Auth = () => {
   return (
-    <div className={css.mainContainer}>
+    <form className={css.mainContainer}>
       <AuthTip />
       <motion.div layout className={css.authContainer}>
         <h3>Вход</h3>
@@ -13,13 +13,17 @@ const Auth = () => {
           Код<span>*</span>
         </p>
         <form className={css.authContentForm}>
-          <input className={css.authContentInput} maxLength={40} />
+          <input
+            className={css.authContentInput}
+            maxLength={40}
+            placeholder="Уникальный 48-ми значный код"
+          />
         </form>
         <span className={css.buttonContent}>
-          <button>Войти</button>
+          <button type="submit">Войти</button>
         </span>
       </motion.div>
-    </div>
+    </form>
   );
 };
 

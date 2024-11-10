@@ -1,4 +1,4 @@
-import { CrossCloseIcon } from '../../../assets';
+import { CrossCloseIcon, PointerArrowTypeOne } from '../../../assets';
 import { useEffect, useState } from 'react';
 import css from './AuthTip.module.css';
 
@@ -48,6 +48,9 @@ export const AuthTip = () => {
           <CrossCloseIcon />
         </span>
       </div>
+      <span className={css.pointerArrow}>
+        <PointerArrowTypeOne />
+      </span>
     </div>
   );
 };

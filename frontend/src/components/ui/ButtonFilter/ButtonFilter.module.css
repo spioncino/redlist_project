@@ -1,0 +1,32 @@
+.mainContainer {
+  width: 170px;
+  height: 40px;
+  padding: 12px 16px;
+  border: 1px solid rgb(240, 240, 242);
+  border-radius: 8px;
+  background: rgb(255, 255, 255);
+  display: flex;
+  cursor: pointer;
+}
+
+.mainContainer p {
+  display: flex;
+  align-items: center;
+}
+
+.text {
+  width: 115px;
+  height: 16px;
+  color: rgb(0, 0, 0);
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 16px;
+  text-align: left;
+}
+
+.arrow {
+  align-self: flex-end;
+}

@@ -8,7 +8,7 @@
 }
 
 .areaContainer {
-  width: 1440px;
+  width: 1132px;
   height: 78px;
   display: flex;
   justify-content: space-between;
@@ -93,6 +93,7 @@ a.onMainText {
     display: none;
   }
   .menuButton {
-    display: block;
+    display: flex;
+    align-items: center;
   }
 }

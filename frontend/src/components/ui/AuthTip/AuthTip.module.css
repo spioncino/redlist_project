@@ -63,3 +63,9 @@
   left: 650px;
   cursor: pointer;
 }
+
+.pointerArrow {
+  position: relative;
+  top: 120px;
+  right: 400px;
+}
