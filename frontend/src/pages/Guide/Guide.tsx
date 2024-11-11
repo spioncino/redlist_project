@@ -1,8 +1,13 @@
 import { useState } from 'react';
-import { BigTextForHelper, ButtonThanks, FiltersGuide } from '../../components';
+import { BigTextForHelper, ButtonThanks, FiltersGuide, SkeletonsCard } from '../../components';
 import css from './Guide.module.css';
+import { useShowCount } from '../../store';
 
 const Guide = () => {
+  const [animals, setAnimals] = useState([]);
+
+  const { count, setCount } = useShowCount();
+
   return (
     <div className={css.mainContainer}>
       <div className={css.filters}>
@@ -19,7 +24,9 @@ const Guide = () => {
           <ButtonThanks text={'Спасибо'} />
         </div>
       </div>
-      <div className={css.mainContent}></div>
+      <div className={css.mainContent}>
+        {animals.length === 0 && Array.from({ length: count }, (_, i) => <SkeletonsCard key={i} />)}
+      </div>
     </div>
   );
 };

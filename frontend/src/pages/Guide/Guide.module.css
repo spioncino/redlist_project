@@ -38,3 +38,9 @@
   height: 137px;
   margin: 20px 0 20px 26px;
 }
+
+.mainContent {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
