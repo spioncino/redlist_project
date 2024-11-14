@@ -1,122 +1,122 @@
-import re
+п»їimport re
 import pandas as pd
 import numpy as np
 import os
 
-# Функция для поиска и извлечения текста по регулярному выражению
+# Р¤СѓРЅРєС†РёСЏ РґР»СЏ РїРѕРёСЃРєР° Рё РёР·РІР»РµС‡РµРЅРёСЏ С‚РµРєСЃС‚Р° РїРѕ СЂРµРіСѓР»СЏСЂРЅРѕРјСѓ РІС‹СЂР°Р¶РµРЅРёСЋ
 def find_re(pattern, text):
     match = re.search(pattern, text)
     return match.group(1).strip() if match else None
 
-# Функция для парсинга информации о каждом виде из текста
+# Р¤СѓРЅРєС†РёСЏ РґР»СЏ РїР°СЂСЃРёРЅРіР° РёРЅС„РѕСЂРјР°С†РёРё Рѕ РєР°Р¶РґРѕРј РІРёРґРµ РёР· С‚РµРєСЃС‚Р°
 def parse_animal(text):
     animal_data = {}
 
-    # Регулярные выражения для различных полей
+    # Р РµРіСѓР»СЏСЂРЅС‹Рµ РІС‹СЂР°Р¶РµРЅРёСЏ РґР»СЏ СЂР°Р·Р»РёС‡РЅС‹С… РїРѕР»РµР№
     regex_patterns = {
-        "Название на русском": r'\s([А-ЯЁ\s\/-/,]{5,})',
-        "Порядок": r'Порядок\s([\w\s/,ё/-]+)\s–',
-        "Семейство": r'Семейство\s([\w\s/,ё/-]+)\s–',
-        "Статус": r'Статус\.\s(.+?)\x1f',
-        "Распространение": r'Распространение\.\s(.+?)\x1f',
-        "Численность": r'Численность\.\s(.+?)\x1f',
-        "Особенности обитания": r'Особенности обитания\.\s(.+?)\x1f',
-        "Лимитирующие факторы": r'Лимитирующие факторы\.\s(.+?)\x1f',
-        "Принятые меры охраны": r'Принятые меры охраны\.\s(.+?)\x1f',
-        "Изменения состояния вида": r'Изменени[яе] состояния вида\.\s(.+?)\x1f',
-        "Необходимые мероприятия по сохранению вида": r'Необходимые мероприятия по сохранению вида\.\s(.+?)\x1f',
-        "Источники информации": r'Источники информации\.\s(.+?)\x1f'
+        "РќР°Р·РІР°РЅРёРµ РЅР° СЂСѓСЃСЃРєРѕРј": r'\s([Рђ-РЇРЃ\s\/-/,]{5,})',
+        "РџРѕСЂСЏРґРѕРє": r'РџРѕСЂСЏРґРѕРє\s([\w\s/,С‘/-]+)\sвЂ“',
+        "РЎРµРјРµР№СЃС‚РІРѕ": r'РЎРµРјРµР№СЃС‚РІРѕ\s([\w\s/,С‘/-]+)\sвЂ“',
+        "РЎС‚Р°С‚СѓСЃ": r'РЎС‚Р°С‚СѓСЃ\.\s(.+?)\x1f',
+        "Р Р°СЃРїСЂРѕСЃС‚СЂР°РЅРµРЅРёРµ": r'Р Р°СЃРїСЂРѕСЃС‚СЂР°РЅРµРЅРёРµ\.\s(.+?)\x1f',
+        "Р§РёСЃР»РµРЅРЅРѕСЃС‚СЊ": r'Р§РёСЃР»РµРЅРЅРѕСЃС‚СЊ\.\s(.+?)\x1f',
+        "РћСЃРѕР±РµРЅРЅРѕСЃС‚Рё РѕР±РёС‚Р°РЅРёСЏ": r'РћСЃРѕР±РµРЅРЅРѕСЃС‚Рё РѕР±РёС‚Р°РЅРёСЏ\.\s(.+?)\x1f',
+        "Р›РёРјРёС‚РёСЂСѓСЋС‰РёРµ С„Р°РєС‚РѕСЂС‹": r'Р›РёРјРёС‚РёСЂСѓСЋС‰РёРµ С„Р°РєС‚РѕСЂС‹\.\s(.+?)\x1f',
+        "РџСЂРёРЅСЏС‚С‹Рµ РјРµСЂС‹ РѕС…СЂР°РЅС‹": r'РџСЂРёРЅСЏС‚С‹Рµ РјРµСЂС‹ РѕС…СЂР°РЅС‹\.\s(.+?)\x1f',
+        "РР·РјРµРЅРµРЅРёСЏ СЃРѕСЃС‚РѕСЏРЅРёСЏ РІРёРґР°": r'РР·РјРµРЅРµРЅРё[СЏРµ] СЃРѕСЃС‚РѕСЏРЅРёСЏ РІРёРґР°\.\s(.+?)\x1f',
+        "РќРµРѕР±С…РѕРґРёРјС‹Рµ РјРµСЂРѕРїСЂРёСЏС‚РёСЏ РїРѕ СЃРѕС…СЂР°РЅРµРЅРёСЋ РІРёРґР°": r'РќРµРѕР±С…РѕРґРёРјС‹Рµ РјРµСЂРѕРїСЂРёСЏС‚РёСЏ РїРѕ СЃРѕС…СЂР°РЅРµРЅРёСЋ РІРёРґР°\.\s(.+?)\x1f',
+        "РСЃС‚РѕС‡РЅРёРєРё РёРЅС„РѕСЂРјР°С†РёРё": r'РСЃС‚РѕС‡РЅРёРєРё РёРЅС„РѕСЂРјР°С†РёРё\.\s(.+?)\x1f'
     }
     
-    # Поиск информации по каждому регулярному выражению
+    # РџРѕРёСЃРє РёРЅС„РѕСЂРјР°С†РёРё РїРѕ РєР°Р¶РґРѕРјСѓ СЂРµРіСѓР»СЏСЂРЅРѕРјСѓ РІС‹СЂР°Р¶РµРЅРёСЋ
     for key, pattern in regex_patterns.items():
         animal_data[key] = find_re(pattern, text)
 
     return animal_data
 
-# Функция для обработки текстового файла и сохранения его в Excel
+# Р¤СѓРЅРєС†РёСЏ РґР»СЏ РѕР±СЂР°Р±РѕС‚РєРё С‚РµРєСЃС‚РѕРІРѕРіРѕ С„Р°Р№Р»Р° Рё СЃРѕС…СЂР°РЅРµРЅРёСЏ РµРіРѕ РІ Excel
 def parse_text_file_to_excel(file_path, output_excel_path):
     with open('PythonParserAnimals\\' + file_path, "r", encoding="utf-8") as file:
         text = file.read()
 
-    # Очистка текста от лишних символов и заголовков
+    # РћС‡РёСЃС‚РєР° С‚РµРєСЃС‚Р° РѕС‚ Р»РёС€РЅРёС… СЃРёРјРІРѕР»РѕРІ Рё Р·Р°РіРѕР»РѕРІРєРѕРІ
     text = text.replace("- ", "")
-    stop_words = ['ЖИВОТНЫЕ', 'Млекопитающие', 'Рыбы', 'Птицы', 'Пресмыкающиеся и земноводные', 'Беспозвоночные', 
-                  'Сосудистые растения', 'РАСТЕНИЯ И ГРИБЫ', 'Моховидные', 'Водоросли', 'Лишайники', 'Грибы']
+    stop_words = ['Р–РР’РћРўРќР«Р•', 'РњР»РµРєРѕРїРёС‚Р°СЋС‰РёРµ', 'Р С‹Р±С‹', 'РџС‚РёС†С‹', 'РџСЂРµСЃРјС‹РєР°СЋС‰РёРµСЃСЏ Рё Р·РµРјРЅРѕРІРѕРґРЅС‹Рµ', 'Р‘РµСЃРїРѕР·РІРѕРЅРѕС‡РЅС‹Рµ', 
+                  'РЎРѕСЃСѓРґРёСЃС‚С‹Рµ СЂР°СЃС‚РµРЅРёСЏ', 'Р РђРЎРўР•РќРРЇ Р Р“Р РР‘Р«', 'РњРѕС…РѕРІРёРґРЅС‹Рµ', 'Р’РѕРґРѕСЂРѕСЃР»Рё', 'Р›РёС€Р°Р№РЅРёРєРё', 'Р“СЂРёР±С‹']
     for word in stop_words:
         text = re.sub(r'\n' + re.escape(word) + r'\n', '\n', text)
 
     text = re.sub(r'\n\d+\n{1,3}', '\n', text)
-    text = re.sub(r'Фото:\s.+\n', '\n', text)
+    text = re.sub(r'Р¤РѕС‚Рѕ:\s.+\n', '\n', text)
 
-    # Разделение текста на блоки для каждого животного
-    animals = re.split(r'Автор[ы]?\:\s.+?\n', text)[:-1]
+    # Р Р°Р·РґРµР»РµРЅРёРµ С‚РµРєСЃС‚Р° РЅР° Р±Р»РѕРєРё РґР»СЏ РєР°Р¶РґРѕРіРѕ Р¶РёРІРѕС‚РЅРѕРіРѕ
+    animals = re.split(r'РђРІС‚РѕСЂ[С‹]?\:\s.+?\n', text)[:-1]
     animal_list = [parse_animal(animal.replace("\n", " ")) for animal in animals]
 
-    # Преобразование данных в DataFrame и сохранение в Excel
+    # РџСЂРµРѕР±СЂР°Р·РѕРІР°РЅРёРµ РґР°РЅРЅС‹С… РІ DataFrame Рё СЃРѕС…СЂР°РЅРµРЅРёРµ РІ Excel
     df = pd.DataFrame(animal_list)
     df = df.replace("", None)
     df.to_excel(output_excel_path, index=False)
 
-# Список текстовых файлов для парсинга и их соответствующих выходных Excel-файлов
+# РЎРїРёСЃРѕРє С‚РµРєСЃС‚РѕРІС‹С… С„Р°Р№Р»РѕРІ РґР»СЏ РїР°СЂСЃРёРЅРіР° Рё РёС… СЃРѕРѕС‚РІРµС‚СЃС‚РІСѓСЋС‰РёС… РІС‹С…РѕРґРЅС‹С… Excel-С„Р°Р№Р»РѕРІ
 text_files = [
-    ('Animal.txt', 'animals_table.xlsx', 'Млекопитающие'),
-    ('Bird1.txt', 'bird1_table.xlsx', 'Птицы'),
-    ('Bird2.txt', 'bird2_table.xlsx', 'Птицы'),
-    ('Amphibians.txt', 'amphibians_table.xlsx', 'Пресмыкающиеся и земноводные'),
-    ('Fish.txt', 'fish_table.xlsx', 'Рыбы'),
-    ('Invertebrates1.txt', 'invertebrates1_table.xlsx', 'Беспозвоночные'),
-    ('Invertebrates2.txt', 'invertebrates2_table.xlsx', 'Беспозвоночные'),
-    ('Invertebrates3.txt', 'invertebrates3_table.xlsx', 'Беспозвоночные'),
-    ('Invertebrates4.txt', 'invertebrates4_table.xlsx', 'Беспозвоночные'),
-    ('Invertebrates5.txt', 'invertebrates5_table.xlsx', 'Беспозвоночные'),
-    ('Vascular_plants1.txt', 'vascular_plants1_table.xlsx', 'Сосудистые растения'),
-    ('Vascular_plants2.txt', 'vascular_plants2_table.xlsx', 'Сосудистые растения'),
-    ('Mossy.txt', 'mossy_table.xlsx', 'Моховидные'),
-    ('Seaweed.txt', 'seaweed_table.xlsx', 'Водоросли'),
-    ('Lichens.txt', 'lichens_table.xlsx', 'Лишайники'),
-    ('Mushrooms.txt', 'mushrooms_table.xlsx', 'Грибы')
+    ('Animal.txt', 'animals_table.xlsx', 'РњР»РµРєРѕРїРёС‚Р°СЋС‰РёРµ'),
+    ('Bird1.txt', 'bird1_table.xlsx', 'РџС‚РёС†С‹'),
+    ('Bird2.txt', 'bird2_table.xlsx', 'РџС‚РёС†С‹'),
+    ('Amphibians.txt', 'amphibians_table.xlsx', 'РџСЂРµСЃРјС‹РєР°СЋС‰РёРµСЃСЏ Рё Р·РµРјРЅРѕРІРѕРґРЅС‹Рµ'),
+    ('Fish.txt', 'fish_table.xlsx', 'Р С‹Р±С‹'),
+    ('Invertebrates1.txt', 'invertebrates1_table.xlsx', 'Р‘РµСЃРїРѕР·РІРѕРЅРѕС‡РЅС‹Рµ'),
+    ('Invertebrates2.txt', 'invertebrates2_table.xlsx', 'Р‘РµСЃРїРѕР·РІРѕРЅРѕС‡РЅС‹Рµ'),
+    ('Invertebrates3.txt', 'invertebrates3_table.xlsx', 'Р‘РµСЃРїРѕР·РІРѕРЅРѕС‡РЅС‹Рµ'),
+    ('Invertebrates4.txt', 'invertebrates4_table.xlsx', 'Р‘РµСЃРїРѕР·РІРѕРЅРѕС‡РЅС‹Рµ'),
+    ('Invertebrates5.txt', 'invertebrates5_table.xlsx', 'Р‘РµСЃРїРѕР·РІРѕРЅРѕС‡РЅС‹Рµ'),
+    ('Vascular_plants1.txt', 'vascular_plants1_table.xlsx', 'РЎРѕСЃСѓРґРёСЃС‚С‹Рµ СЂР°СЃС‚РµРЅРёСЏ'),
+    ('Vascular_plants2.txt', 'vascular_plants2_table.xlsx', 'РЎРѕСЃСѓРґРёСЃС‚С‹Рµ СЂР°СЃС‚РµРЅРёСЏ'),
+    ('Mossy.txt', 'mossy_table.xlsx', 'РњРѕС…РѕРІРёРґРЅС‹Рµ'),
+    ('Seaweed.txt', 'seaweed_table.xlsx', 'Р’РѕРґРѕСЂРѕСЃР»Рё'),
+    ('Lichens.txt', 'lichens_table.xlsx', 'Р›РёС€Р°Р№РЅРёРєРё'),
+    ('Mushrooms.txt', 'mushrooms_table.xlsx', 'Р“СЂРёР±С‹')
 ]
 
-# Парсинг текстовых файлов и создание промежуточных Excel-файлов
+# РџР°СЂСЃРёРЅРі С‚РµРєСЃС‚РѕРІС‹С… С„Р°Р№Р»РѕРІ Рё СЃРѕР·РґР°РЅРёРµ РїСЂРѕРјРµР¶СѓС‚РѕС‡РЅС‹С… Excel-С„Р°Р№Р»РѕРІ
 for text_file, output_excel, section_name in text_files:
     parse_text_file_to_excel(text_file, output_excel)
     print(f'Parsed {text_file} and saved to {output_excel}')
 
-# Функция для добавления столбцов классификации и объединения таблиц
+# Р¤СѓРЅРєС†РёСЏ РґР»СЏ РґРѕР±Р°РІР»РµРЅРёСЏ СЃС‚РѕР»Р±С†РѕРІ РєР»Р°СЃСЃРёС„РёРєР°С†РёРё Рё РѕР±СЉРµРґРёРЅРµРЅРёСЏ С‚Р°Р±Р»РёС†
 def prepare_table(file_path, section_name, extra_cols):
     df = pd.read_excel(file_path)
-    df.insert(1, 'Раздел', section_name)
+    df.insert(1, 'Р Р°Р·РґРµР»', section_name)
     for col_name, col_value in extra_cols:
         df[col_name] = col_value
     return df
 
-# Информация о файлах и соответствующих данных
+# РРЅС„РѕСЂРјР°С†РёСЏ Рѕ С„Р°Р№Р»Р°С… Рё СЃРѕРѕС‚РІРµС‚СЃС‚РІСѓСЋС‰РёС… РґР°РЅРЅС‹С…
 files_info = [
-    ('animals_table.xlsx', 'Млекопитающие', [('Порядок', np.nan), ('Отдел', np.nan)]),
-    ('bird1_table.xlsx', 'Птицы', [('Порядок', np.nan), ('Отдел', np.nan)]),
-    ('bird2_table.xlsx', 'Птицы', [('Порядок', np.nan), ('Отдел', np.nan)]),
-    ('amphibians_table.xlsx', 'Пресмыкающиеся и земноводные', [('Порядок', np.nan), ('Отдел', np.nan)]),
-    ('fish_table.xlsx', 'Рыбы', [('Порядок', np.nan), ('Отдел', np.nan)]),
-    ('invertebrates1_table.xlsx', 'Беспозвоночные', [('Порядок', np.nan), ('Отдел', np.nan)]),
-    ('invertebrates2_table.xlsx', 'Беспозвоночные', [('Порядок', np.nan), ('Отдел', np.nan)]),
-    ('invertebrates3_table.xlsx', 'Беспозвоночные', [('Порядок', np.nan), ('Отдел', np.nan)]),
-    ('invertebrates4_table.xlsx', 'Беспозвоночные', [('Порядок', np.nan), ('Отдел', np.nan)]),
-    ('invertebrates5_table.xlsx', 'Беспозвоночные', [('Порядок', np.nan), ('Отдел', np.nan)]),
-    ('vascular_plants1_table.xlsx', 'Сосудистые растения', [('Отряд', np.nan), ('Отдел', np.nan)]),
-    ('vascular_plants2_table.xlsx', 'Сосудистые растения', [('Отряд', np.nan), ('Отдел', np.nan)]),
-    ('mossy_table.xlsx', 'Моховидные', [('Отряд', np.nan), ('Отдел', np.nan)]),
-    ('seaweed_table.xlsx', 'Водоросли', [('Отряд', np.nan), ('Порядок', np.nan)]),
-    ('lichens_table.xlsx', 'Лишайники', [('Отряд', np.nan), ('Отдел', np.nan)]),
-    ('mushrooms_table.xlsx', 'Грибы', [('Отряд', np.nan), ('Отдел', np.nan)])
+    ('animals_table.xlsx', 'РњР»РµРєРѕРїРёС‚Р°СЋС‰РёРµ', [('РџРѕСЂСЏРґРѕРє', np.nan), ('РћС‚РґРµР»', np.nan)]),
+    ('bird1_table.xlsx', 'РџС‚РёС†С‹', [('РџРѕСЂСЏРґРѕРє', np.nan), ('РћС‚РґРµР»', np.nan)]),
+    ('bird2_table.xlsx', 'РџС‚РёС†С‹', [('РџРѕСЂСЏРґРѕРє', np.nan), ('РћС‚РґРµР»', np.nan)]),
+    ('amphibians_table.xlsx', 'РџСЂРµСЃРјС‹РєР°СЋС‰РёРµСЃСЏ Рё Р·РµРјРЅРѕРІРѕРґРЅС‹Рµ', [('РџРѕСЂСЏРґРѕРє', np.nan), ('РћС‚РґРµР»', np.nan)]),
+    ('fish_table.xlsx', 'Р С‹Р±С‹', [('РџРѕСЂСЏРґРѕРє', np.nan), ('РћС‚РґРµР»', np.nan)]),
+    ('invertebrates1_table.xlsx', 'Р‘РµСЃРїРѕР·РІРѕРЅРѕС‡РЅС‹Рµ', [('РџРѕСЂСЏРґРѕРє', np.nan), ('РћС‚РґРµР»', np.nan)]),
+    ('invertebrates2_table.xlsx', 'Р‘РµСЃРїРѕР·РІРѕРЅРѕС‡РЅС‹Рµ', [('РџРѕСЂСЏРґРѕРє', np.nan), ('РћС‚РґРµР»', np.nan)]),
+    ('invertebrates3_table.xlsx', 'Р‘РµСЃРїРѕР·РІРѕРЅРѕС‡РЅС‹Рµ', [('РџРѕСЂСЏРґРѕРє', np.nan), ('РћС‚РґРµР»', np.nan)]),
+    ('invertebrates4_table.xlsx', 'Р‘РµСЃРїРѕР·РІРѕРЅРѕС‡РЅС‹Рµ', [('РџРѕСЂСЏРґРѕРє', np.nan), ('РћС‚РґРµР»', np.nan)]),
+    ('invertebrates5_table.xlsx', 'Р‘РµСЃРїРѕР·РІРѕРЅРѕС‡РЅС‹Рµ', [('РџРѕСЂСЏРґРѕРє', np.nan), ('РћС‚РґРµР»', np.nan)]),
+    ('vascular_plants1_table.xlsx', 'РЎРѕСЃСѓРґРёСЃС‚С‹Рµ СЂР°СЃС‚РµРЅРёСЏ', [('РћС‚СЂСЏРґ', np.nan), ('РћС‚РґРµР»', np.nan)]),
+    ('vascular_plants2_table.xlsx', 'РЎРѕСЃСѓРґРёСЃС‚С‹Рµ СЂР°СЃС‚РµРЅРёСЏ', [('РћС‚СЂСЏРґ', np.nan), ('РћС‚РґРµР»', np.nan)]),
+    ('mossy_table.xlsx', 'РњРѕС…РѕРІРёРґРЅС‹Рµ', [('РћС‚СЂСЏРґ', np.nan), ('РћС‚РґРµР»', np.nan)]),
+    ('seaweed_table.xlsx', 'Р’РѕРґРѕСЂРѕСЃР»Рё', [('РћС‚СЂСЏРґ', np.nan), ('РџРѕСЂСЏРґРѕРє', np.nan)]),
+    ('lichens_table.xlsx', 'Р›РёС€Р°Р№РЅРёРєРё', [('РћС‚СЂСЏРґ', np.nan), ('РћС‚РґРµР»', np.nan)]),
+    ('mushrooms_table.xlsx', 'Р“СЂРёР±С‹', [('РћС‚СЂСЏРґ', np.nan), ('РћС‚РґРµР»', np.nan)])
 ]
 
-# Объединение всех файлов в одну таблицу
+# РћР±СЉРµРґРёРЅРµРЅРёРµ РІСЃРµС… С„Р°Р№Р»РѕРІ РІ РѕРґРЅСѓ С‚Р°Р±Р»РёС†Сѓ
 combined_df = pd.DataFrame()
 for file_path, section_name, extra_cols in files_info:
     df = prepare_table(file_path, section_name, extra_cols)
     combined_df = pd.concat([combined_df, df], ignore_index=True)
 
-# Сохранение объединённой таблицы в Excel
+# РЎРѕС…СЂР°РЅРµРЅРёРµ РѕР±СЉРµРґРёРЅС‘РЅРЅРѕР№ С‚Р°Р±Р»РёС†С‹ РІ Excel
 combined_df.to_excel('Concat_table.xlsx', index=False)
 print("All files combined and saved to Full_table.xlsx")
