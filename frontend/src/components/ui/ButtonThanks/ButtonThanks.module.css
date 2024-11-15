@@ -1,0 +1,15 @@
+.mainContent {
+  width: 166px;
+  height: 42px;
+  border-radius: 12px;
+  background: VAR(--main-green-color);
+  border: none;
+  color: rgb(255, 255, 255);
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}

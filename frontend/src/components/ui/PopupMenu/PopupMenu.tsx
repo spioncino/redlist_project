@@ -10,14 +10,21 @@ export const PopupMenu: React.FC<PopupMenuProps> = ({ active, setActive }) => {
   return (
     <ul className={active ? css.active : css.noActive}>
       <li onClick={() => setActive(false)}>
-        <Link to={'/guide'}>Путеводитель</Link>
+        <Link to={'/guide'} className={css.textLink}>
+          Путеводитель
+        </Link>
       </li>
       <li onClick={() => setActive(false)}>
-        <Link to={'/news'}>Новости</Link>
+        <Link to={'/news'} className={css.textLink}>
+          Новости
+        </Link>
       </li>
       <li onClick={() => setActive(false)}>
-        <Link to={'/monitoring'}>Мониторинг</Link>
+        <Link to={'/monitoring'} className={css.textLink}>
+          Мониторинг
+        </Link>
       </li>
+      <li onClick={() => setActive(false)}>Войти</li>
     </ul>
   );
 };

@@ -1,0 +1,79 @@
+.mainContainer {
+  margin-top: 37px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.authContainer {
+  margin-top: 121px;
+  padding: 31px 42px;
+  display: flex;
+  flex-direction: column;
+  width: 436px;
+  height: 275px;
+  border-radius: 12px;
+  background: VAR(--main-gray-color);
+}
+
+.authContainer h3 {
+  margin-bottom: 8px;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.authContainer hr {
+  margin-bottom: 38px;
+  background: VAR(--add-gray-color);
+  height: 1px;
+}
+
+.authContainer p {
+  margin-bottom: 8px;
+  color: rgb(0, 0, 0);
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.authContainer p span {
+  color: rgb(177, 39, 37);
+}
+
+.authContentInput {
+  padding: 0px 15px;
+  width: 348px;
+  height: 56px;
+  border: 1px solid VAR(--add-gray-color);
+  border-radius: 11px;
+  background: rgb(255, 255, 255);
+  color: rgb(115, 115, 115);
+  font-size: 14px;
+}
+
+.authContentForm {
+  margin-bottom: 32px;
+}
+
+.authContentInput:focus {
+  border: 1px solid VAR(--add-gray-color);
+  outline: none;
+}
+
+.buttonContent {
+  display: flex;
+  justify-content: center;
+}
+
+.authContainer button {
+  cursor: pointer;
+  justify-content: center;
+  padding: 12px 20px;
+  width: 88px;
+  height: 40px;
+  border: 1px solid rgb(240, 240, 242);
+  border-radius: 8px;
+  background: VAR(--main-green-color);
+  color: rgb(255, 255, 255);
+  font-size: 16px;
+  font-weight: 500;
+}

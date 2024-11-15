@@ -1,0 +1,71 @@
+.ryabchikContainer {
+  width: 210px;
+  height: 210px;
+}
+
+.ryabchikImage {
+  position: relative;
+  content: url('../../../assets/RyabchikAuth.png');
+  bottom: 17px;
+  right: 8px;
+}
+
+.buttonThanks {
+  margin-top: 7px;
+  width: 166px;
+  height: 42px;
+  cursor: pointer;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 20px;
+  color: white;
+  border-radius: 12px;
+  border: none;
+  background-color: VAR(--main-green-color);
+}
+
+.helperContainer {
+  width: 1132px;
+  height: 176px;
+  border-radius: 44px;
+  background: rgb(237, 237, 237);
+  display: flex;
+  flex-direction: row;
+}
+
+.helperDescription {
+  margin-left: 47px;
+}
+
+.helperDescription h3 {
+  margin-top: 23px;
+  margin-bottom: 14px;
+  font-weight: 500;
+}
+
+.helperDescription p {
+  width: 693px;
+  height: 43px;
+  color: black;
+  font-size: 16px;
+  font-weight: 400;
+  margin-bottom: 14px;
+}
+
+.helperDescription p span {
+  color: VAR(--main-green-color);
+  font-weight: 500;
+}
+
+.crossCloseIcon {
+  position: relative;
+  bottom: 105px;
+  left: 650px;
+  cursor: pointer;
+}
+
+.pointerArrow {
+  position: relative;
+  top: 120px;
+  right: 400px;
+}
