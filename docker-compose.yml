@@ -7,3 +7,12 @@ services:
     volumes:
       - ./frontend:/app
       - /app/node_modules
+    depends_on:
+      - tgbot
+  tgbot:
+    build: ./bot
+    container_name: tgbotredlist
+    volumes:
+      - ./bot:/app
+    ports:
+      - "3333:3333"
