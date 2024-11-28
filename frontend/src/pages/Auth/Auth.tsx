@@ -1,10 +1,10 @@
 import css from './Auth.module.css';
-import { AuthTip } from '../../components';
+import { HelperAuthPage } from '../../components';
 
 const Auth = () => {
   return (
     <form className={css.mainContainer}>
-      <AuthTip />
+      <HelperAuthPage />
       <div className={css.authContainer}>
         <h3>Вход</h3>
         <hr />

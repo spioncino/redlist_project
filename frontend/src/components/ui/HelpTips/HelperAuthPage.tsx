@@ -1,8 +1,8 @@
 import { CrossCloseIcon, PointerArrowTypeOne } from '../../../assets';
 import { useEffect, useState } from 'react';
-import css from './AuthTip.module.css';
+import css from './HelperAuthPage.module.css';
 
-export const AuthTip = () => {
+export const HelperAuthPage = () => {
   const [showHelper, setShowHelper] = useState<boolean>(false);
 
   const handleRemove = () => {

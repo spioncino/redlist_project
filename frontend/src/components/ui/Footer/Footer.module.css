@@ -1,0 +1,26 @@
+.mainContainer {
+  margin-top: 50px;
+  width: 100vw;
+  height: 78px;
+  display: flex;
+  justify-content: center;
+  background: rgb(114, 178, 114);
+}
+
+.mainContent {
+  width: 1140px;
+  height: 78px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.text {
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 16px;
+  cursor: pointer;
+}

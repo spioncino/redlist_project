@@ -1,0 +1,57 @@
+.mainContainer {
+  display: flex;
+  flex-direction: row;
+  width: 1132px;
+  height: 176px;
+  border-radius: 44px;
+  background: rgb(237, 237, 237);
+  margin-bottom: 25px;
+}
+
+.imageContainer {
+  width: 300px;
+  height: 176px;
+}
+
+.imageRyabchik {
+  position: relative;
+  content: url('../../../assets/RyabchikMaps.png');
+  bottom: 41px;
+  left: 28px;
+}
+
+.descContainer {
+  padding: 23px 0px 0px 36px;
+}
+
+.mainText {
+  margin: 18px 0px 15px;
+  width: 693px;
+  color: rgb(0, 0, 0);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 16px;
+}
+
+.mainText span {
+  color: rgb(114, 178, 114);
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 16px;
+}
+
+.pointerArrow {
+  position: relative;
+  content: url('../../../assets/PointerArrowTypeThree.png');
+  width: 93.3px;
+  height: 91.58px;
+  right: 386px;
+  top: 102px;
+}
+
+.closeIcon {
+  cursor: pointer;
+  position: relative;
+  top: 23px;
+  right: 47px;
+}

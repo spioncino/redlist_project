@@ -1,0 +1,97 @@
+.mainContainer {
+  margin-top: 40px;
+}
+
+.searchKadastr {
+  padding: 12px 25px;
+  width: 1132px;
+  height: 63px;
+  border-radius: 29px;
+  background: VAR(--main-gray-color);
+}
+
+.formKadastr {
+  padding: 0px 16px;
+  width: 348px;
+  height: 40px;
+  border: 1px solid rgb(240, 240, 242);
+  border-radius: 25px;
+  background: rgb(255, 255, 255);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.inputKadastr {
+  width: 285px;
+  height: 16px;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 16px;
+  color: rgb(115, 115, 115);
+}
+
+.mapsContainer {
+  margin-top: 12px;
+  width: 1132px;
+  height: 592px;
+  border-radius: 44px;
+  background: rgb(237, 237, 237);
+  display: flex;
+  flex-direction: row;
+}
+
+.mapsFilters {
+  width: 327px;
+}
+
+.mapsContent {
+  overflow: hidden;
+  border-radius: 0px 44px 44px 0px;
+  width: 805px;
+  height: 592px;
+  z-index: 2;
+}
+
+.mapsHelp {
+  position: absolute;
+  z-index: 1;
+  color: rgb(0, 0, 0);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 16px;
+  margin-left: 500px;
+  margin-top: 246px;
+}
+
+.typesContainer {
+  margin-top: 38px;
+}
+
+.titleH5 {
+  color: rgb(143, 143, 143);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 16px;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  background-color: transparent;
+}
+
+.pointerArrow {
+  display: inline-block;
+  margin-left: 5px;
+}
+
+.historyContainer {
+  margin-top: 21px;
+}
+
+.historyContent {
+  display: flex;
+  flex-direction: column;
+}

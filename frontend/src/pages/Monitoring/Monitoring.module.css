@@ -1,0 +1,33 @@
+.mainContainer {
+  width: 1132px;
+  display: flex;
+  flex-direction: column;
+}
+
+.navigate {
+  padding: 0px 26px;
+  width: 333px;
+  height: 55px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+hr {
+  border: 1px solid rgb(114, 178, 114);
+}
+
+.activeLink {
+  color: rgb(0, 0, 0);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 16px;
+}
+
+.noActiveLink {
+  color: rgb(0, 0, 0);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 16px;
+  text-decoration: none;
+}

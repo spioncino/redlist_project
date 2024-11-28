@@ -1,0 +1,59 @@
+.mainContainer {
+  width: 1132px;
+  height: 63px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding-left: 32px;
+  border-radius: 29px;
+  background: rgb(237, 237, 237);
+  margin-bottom: 6px;
+}
+
+.mainContainer:first-child {
+  margin-top: 25px;
+}
+
+.mainContainer:last-child {
+  margin-bottom: 0px;
+}
+
+.mainContainer span:nth-child(even) {
+  color: rgb(0, 0, 0);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 14px;
+}
+
+.mainContainer span:nth-child(odd) {
+  color: rgb(143, 143, 143);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 14px;
+}
+
+.textRequest {
+  width: 55px;
+  margin-right: 9px;
+}
+
+.numberRequest {
+  width: 42px;
+  margin-right: 12px;
+}
+
+.textDate {
+  width: 36px;
+  margin-right: 13px;
+}
+
+.numberDate {
+  width: 90px;
+  text-align: center;
+  margin-right: 25px;
+}
+
+.textKadastr {
+  width: 140px;
+  margin-right: 35px;
+}

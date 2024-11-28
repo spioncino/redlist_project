@@ -5,6 +5,11 @@
   background-color: VAR(--main-gray-color);
   display: flex;
   flex-direction: row;
+  margin-bottom: 8px;
+}
+
+.mainContainer:last-child {
+  margin-bottom: 0px;
 }
 
 .imageWithTypes {

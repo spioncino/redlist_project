@@ -1,0 +1,77 @@
+.mainContainer {
+  margin-top: 40px;
+  display: flex;
+  flex-direction: row;
+  width: 1132px;
+  height: 211px;
+  border-radius: 44px;
+  background: rgb(237, 237, 237);
+}
+
+.imageContainer {
+  width: 313px;
+  height: 211px;
+}
+
+.imageRyabchik {
+  position: relative;
+  content: url('../../../assets/RyabchikMonitoringAdm.png');
+  bottom: 52px;
+  right: 88px;
+}
+
+.descContainer {
+  display: flex;
+  flex-direction: column;
+  padding: 34px 0px 0px 8px;
+}
+
+.mainText {
+  margin: 17px 0px 19px 0px;
+  width: 693px;
+  color: rgb(0, 0, 0);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 16px;
+}
+
+.keyDesc {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 13px;
+  color: rgb(0, 0, 0);
+  font-size: 12.68px;
+  font-weight: 400;
+  line-height: 13px;
+}
+
+.closeIcon {
+  margin-right: 10px;
+}
+
+.acceptIcon {
+  margin-left: 25px;
+  margin-right: 15px;
+}
+
+.editIcon {
+  margin-left: 29px;
+  margin-right: 12px;
+}
+
+.pointerArrow {
+  position: absolute;
+  content: url('../../../assets/PointerArrowTypeFour.png');
+  width: 168px;
+  height: 144.85px;
+  margin-left: 820px;
+  margin-top: 155px;
+}
+
+.crossCloseIcon {
+  cursor: pointer;
+  position: relative;
+  top: 23px;
+  left: 46px;
+}

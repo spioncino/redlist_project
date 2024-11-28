@@ -11,36 +11,8 @@
   align-items: flex-start;
 }
 
-.helper {
-  width: 1132px;
-  display: flex;
-  flex-direction: row;
-  margin-top: 52px;
-  margin-bottom: 13px;
-  width: 1132px;
-  height: 177px;
-  border-radius: 44px;
-  background: VAR(--main-gray-color);
-}
-
-.imageRyabchik {
-  width: 384px;
-  height: 229px;
-  position: relative;
-  bottom: 52px;
-  right: 90px;
-  z-index: 0;
-  content: url('../../assets/RyabchikGuide.png');
-}
-
-.descriptionContainer {
-  width: 699px;
-  height: 137px;
-  margin: 20px 0 20px 26px;
-}
-
 .mainContent {
+  margin-top: 36px;
   display: flex;
   flex-direction: column;
-  gap: 8px;
 }

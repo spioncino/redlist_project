@@ -1,0 +1,58 @@
+.mainContainer {
+}
+
+.activeRequestContainer {
+  margin-top: 25px;
+}
+
+.activeRequestContent {
+  margin-top: 25px;
+}
+
+.procRequestContainer {
+  margin-top: 25px;
+}
+
+.procRequestContainer button {
+  margin-bottom: 20px;
+}
+
+.activeRequestNav {
+  margin: 0px 0px 15px 16px;
+  display: flex;
+  flex-direction: row;
+  list-style: none;
+  color: rgb(143, 143, 143);
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 16px;
+}
+
+.numRequest {
+  margin-right: 28px;
+}
+
+.dateRequest {
+  margin-right: 110px;
+}
+
+.animRequest {
+  margin-right: 117px;
+}
+
+.titleH5 {
+  margin-left: 5px;
+  color: rgb(143, 143, 143);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 16px;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  background-color: transparent;
+}
+
+.pointerArrow {
+  display: inline-block;
+  margin-left: 5px;
+}
