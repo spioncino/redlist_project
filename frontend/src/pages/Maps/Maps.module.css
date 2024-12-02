@@ -39,13 +39,84 @@
   width: 1132px;
   height: 592px;
   border-radius: 44px;
-  background: rgb(237, 237, 237);
+  background: VAR(--main-gray-color);
   display: flex;
   flex-direction: row;
 }
 
 .mapsFilters {
+  padding: 30px;
   width: 327px;
+}
+
+.titleAllObjects {
+  color: rgb(143, 143, 143);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 14px;
+  margin-bottom: 19px;
+}
+
+.hrAfterAllObjects {
+  margin-top: 25px;
+  margin-bottom: 13px;
+  border: 1px solid rgb(203, 203, 203);
+}
+
+.titleTypes {
+  color: rgb(143, 143, 143);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 14px;
+  margin-bottom: 13px;
+}
+
+.checkOfTypes {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.hrAfterTypes {
+  margin-top: 17px;
+  margin-bottom: 9px;
+  border: 1px solid rgb(203, 203, 203);
+}
+
+.titleOfStatus {
+  margin-bottom: 9px;
+  color: rgb(143, 143, 143);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 14px;
+  margin-bottom: 13px;
+}
+
+.checkOfStatus {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+.hrAfterStatus {
+  margin-top: 18px;
+  margin-bottom: 9px;
+  border: 1px solid rgb(203, 203, 203);
+}
+
+.titleOfPoints {
+  margin-top: 9px;
+  color: rgb(143, 143, 143);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 14px;
+  margin-bottom: 13px;
+}
+
+.checkOfPoints {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
 }
 
 .mapsContent {

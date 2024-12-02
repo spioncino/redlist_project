@@ -1,6 +1,6 @@
 import { Link, NavLink, useLocation } from 'react-router-dom';
 import { LogoIcon, MenuIcon, UnLoginIcon } from '../../assets';
-import { act, useState } from 'react';
+import { act, useEffect, useState } from 'react';
 import { PopupMenu } from '../ui';
 import css from './Header.module.css';
 
@@ -11,6 +11,13 @@ export const Header = () => {
     isActive ? css.activeLink : css.noActiveLink;
 
   const locate = useLocation();
+
+  const [isAuth, setIsAuth] = useState<boolean>(false);
+
+  useEffect(() => {
+    const token = localStorage.getItem('authToken');
+    setIsAuth(Boolean(token));
+  });
 
   return (
     <div className={css.mainContainer}>
@@ -25,32 +32,50 @@ export const Header = () => {
                 </NavLink>
               </p>
               <p>
+                <NavLink to={isAuth ? 'monitoring' : 'requestuser'} className={handleActive}>
+                  {isAuth ? 'Мониторинг' : 'Подача заявки'}
+                </NavLink>
+              </p>
+              {/* <p>
                 <NavLink to={'news'} className={handleActive}>
                   Новости
                 </NavLink>
-              </p>
-              <p>
-                <NavLink to={'monitoring'} className={handleActive}>
-                  Мониторинг
-                </NavLink>
-              </p>
+              </p> */}
             </span>
           )}
         </span>
-        {locate.pathname != '/auth' && (
+        {isAuth ? (
           <span className={css.authTemp}>
-            <p>
-              <Link to="/auth" className={css.onMainText}>
-                Войти
-              </Link>
+            <p
+              className={css.onMainText}
+              onClick={() => {
+                localStorage.removeItem('authToken');
+                setIsAuth(false);
+                window.location.reload();
+              }}
+            >
+              Выйти
             </p>
-            <LogoIcon />
+            <UnLoginIcon />
           </span>
-        )}
-        {locate.pathname == '/auth' && (
-          <Link to="/" className={css.onMainText}>
-            На главную
-          </Link>
+        ) : (
+          <>
+            {locate.pathname !== '/auth' && (
+              <span className={css.authTemp}>
+                <p>
+                  <Link to="/auth" className={css.onMainText}>
+                    Войти
+                  </Link>
+                </p>
+                <LogoIcon />
+              </span>
+            )}
+            {locate.pathname === '/auth' && (
+              <Link to="/" className={css.onMainText}>
+                На главную
+              </Link>
+            )}
+          </>
         )}
         {locate.pathname != '/auth' && (
           <button

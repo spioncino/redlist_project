@@ -1,0 +1,179 @@
+.mainContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.newRequestButton {
+  margin-top: 35px;
+  margin-left: 5px;
+  width: 183px;
+  height: 42px;
+  border-radius: 12px;
+  background: VAR(--main-green-color);
+  border: none;
+  cursor: pointer;
+  color: rgb(255, 255, 255);
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 20px;
+}
+
+.requestContainer {
+  padding-top: 31px;
+  padding-left: 36px;
+  margin-top: 28px;
+  display: flex;
+  flex-direction: row;
+  width: 1132px;
+  height: 291px;
+  border: 1px solid VAR(--main-green-color);
+  border-radius: 29px;
+}
+
+.titleH4 {
+  color: rgb(143, 143, 143);
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 16px;
+}
+
+.formAnimals {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 17px;
+  width: 380px;
+  height: 40px;
+  border: 1px solid rgb(240, 240, 242);
+  border-radius: 25px;
+  margin-bottom: 17px;
+}
+
+.inputAnimals {
+  border: none;
+  outline: none;
+  width: 360px;
+  color: rgb(115, 115, 115);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 16px;
+}
+
+.fileUploadForm {
+  cursor: pointer;
+  margin-left: 2px;
+  margin-top: 16px;
+}
+
+.fileUploadLabel {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  color: rgb(115, 115, 115);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 16px;
+}
+
+.paperClipIconFile {
+  cursor: pointer;
+  width: 18px;
+  height: 18px;
+  margin-right: 10px;
+}
+
+.textFileUpload {
+  cursor: pointer;
+  padding-top: 5px;
+}
+
+.personalDataProcessing {
+  width: 570px;
+  height: 32px;
+  margin-top: 18px;
+}
+
+.personalDataProcessing label {
+  margin-left: 16px;
+  color: rgb(115, 115, 115);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 16px;
+}
+
+.saveButton {
+  margin-top: 13px;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  width: 275px;
+  height: 42px;
+  border-radius: 12px;
+  background: VAR(--main-green-color);
+  color: rgb(255, 255, 255);
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 20px;
+}
+
+.mapsContent {
+  margin-top: 18px;
+  border-radius: 18px;
+  overflow: hidden;
+}
+
+.mainContent {
+  margin-top: 28px;
+}
+
+.titleH5 {
+  color: rgb(143, 143, 143);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 16px;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  background-color: transparent;
+}
+
+.pointerArrow {
+  display: inline-block;
+  margin-left: 5px;
+}
+
+.historyContent {
+  margin: 25px 0px;
+}
+
+.activeRequestNav {
+  margin: 0px 0px 15px 16px;
+  display: flex;
+  flex-direction: row;
+  list-style: none;
+  color: rgb(143, 143, 143);
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 16px;
+}
+
+.activeRequestContainer {
+  margin-top: 25px;
+  margin-bottom: 25px;
+}
+
+.activeRequestContent {
+  margin-top: 25px;
+}
+
+.numRequest {
+  margin-right: 28px;
+}
+
+.dateRequest {
+  margin-right: 110px;
+}
+
+.animRequest {
+  margin-right: 117px;
+}

@@ -1,0 +1,114 @@
+.mainContainer {
+  width: 1132px;
+  display: flex;
+  flex-direction: column;
+}
+
+.backToGuide {
+  margin-top: 80px;
+  margin-left: 10px;
+  color: rgb(119, 119, 119);
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 150%;
+  text-decoration: none;
+}
+
+.mainContent {
+  margin-top: 15px;
+  display: flex;
+  flex-direction: row;
+}
+
+.imageContainer {
+  width: 430px;
+  height: 300px;
+}
+
+.image {
+  width: 427px;
+  height: 257px;
+  content: url('../../assets/image 2 (1).png');
+  border-radius: 61.6px;
+}
+
+.divisionOnImage {
+  padding-left: 15px;
+  border-radius: 61.6px 0px 15.4px 0px;
+  background: VAR(--main-green-color);
+  width: 268.8px;
+  height: 68.6px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  color: rgb(255, 255, 255);
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 20px;
+}
+
+.descContainer {
+  display: flex;
+  flex-direction: column;
+  padding-left: 18px;
+}
+
+.titleOfAnimal {
+  margin-bottom: 17px;
+  width: 684px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.otherTitleOfAnimal {
+  color: rgb(0, 0, 0);
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 20px;
+}
+
+.mainTitleOfAnimal {
+  color: rgb(0, 0, 0);
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 20px;
+}
+
+.classOfAnimal {
+  color: rgb(0, 0, 0);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 16px;
+}
+
+.classOfAnimal span {
+  color: VAR(--main-green-color);
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 16px;
+}
+
+.descText {
+  margin-top: 20px;
+  color: rgb(0, 0, 0);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 16px;
+}
+
+.descText span {
+  color: VAR(--main-green-color);
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 16px;
+}
+
+.mapContainer {
+  width: 544px;
+  height: 300px;
+  border-radius: 10px;
+  margin-top: 30px;
+  border-radius: 10px;
+  overflow: hidden;
+}

@@ -14,7 +14,7 @@
 .activity {
   width: 45px;
   height: 45px;
-  border: 1px solid rgb(114, 178, 114);
+  border: 1px solid VAR(--main-green-color);
   border-radius: 8.75px;
   background: rgb(255, 255, 255);
   display: flex;
@@ -57,7 +57,7 @@
 .active {
   width: 45px;
   height: 45px;
-  border: 1px solid rgb(114, 178, 114);
+  border: 1px solid VAR(--main-green-color);
   border-radius: 8.75px;
   background: rgb(255, 255, 255);
   display: flex;

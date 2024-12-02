@@ -1,7 +1,12 @@
-import { NavLink, Outlet } from 'react-router-dom';
+import { Navigate, NavLink, Outlet } from 'react-router-dom';
 import css from './Monitoring.module.css';
+import { isAuthenticated } from '../../utils';
 
 const Monitoring = () => {
+  if (!isAuthenticated()) {
+    return <Navigate to="/" replace={true} />;
+  }
+
   const handleActive = ({ isActive }: { isActive: boolean }): string =>
     isActive ? css.activeLink : css.noActiveLink;
 

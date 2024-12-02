@@ -1,0 +1,76 @@
+.mainContainer {
+  display: flex;
+  flex-direction: row;
+  width: 1132px;
+  height: 186px;
+  border-radius: 44px;
+  background: VAR(--main-gray-color);
+  margin-bottom: 8px;
+}
+
+.mainContainer:last-child {
+  margin-bottom: 0px;
+}
+
+.descContainer {
+  padding-left: 34px;
+  display: flex;
+  flex-direction: column;
+}
+
+.titleOfAnimal {
+  margin: 18px 0px;
+  width: 750px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.mainTitleOfAnimal {
+  color: rgb(0, 0, 0);
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 16px;
+}
+
+.otherTitleOfAnimal {
+  color: rgb(0, 0, 0);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 14px;
+}
+
+.classOfAnimal {
+  color: rgb(0, 0, 0);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 14px;
+}
+
+.classOfAnimal span {
+  color: VAR(--main-green-color);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 14px;
+}
+
+.descriptionOfAnimal {
+  margin-top: 19px;
+  width: 761px;
+  height: 28px;
+  color: rgb(0, 0, 0);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 14px;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.listOfTags {
+  margin-top: 12px;
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+}

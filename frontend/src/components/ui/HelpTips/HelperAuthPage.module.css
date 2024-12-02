@@ -28,7 +28,7 @@
   width: 1132px;
   height: 176px;
   border-radius: 44px;
-  background: rgb(237, 237, 237);
+  background: VAR(--main-gray-color);
   display: flex;
   flex-direction: row;
 }

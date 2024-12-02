@@ -25,7 +25,8 @@
   width: 415px;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  gap: 70px;
+  /* justify-content: space-evenly; */
 }
 
 .authTemp {

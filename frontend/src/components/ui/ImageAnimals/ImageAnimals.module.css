@@ -1,0 +1,23 @@
+.mainImage {
+  content: url('../../../assets/image 2 (1).png');
+  border-radius: 44px;
+  width: 300px;
+  height: 186px;
+}
+
+.divisionOnImage {
+  position: absolute;
+  z-index: 2;
+  width: 170px;
+  height: 49px;
+  border-radius: 11px;
+  border-radius: 44px 0px 11px 0px;
+  background: VAR(--main-green-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: rgb(255, 255, 255);
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 16px;
+}

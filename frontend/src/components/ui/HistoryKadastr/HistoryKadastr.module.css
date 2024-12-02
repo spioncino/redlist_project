@@ -6,7 +6,7 @@
   align-items: center;
   padding-left: 32px;
   border-radius: 29px;
-  background: rgb(237, 237, 237);
+  background: VAR(--main-gray-color);
   margin-bottom: 6px;
 }
 

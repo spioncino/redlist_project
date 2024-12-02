@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import {
+  AnimalPlantCard,
   BigTextForHelper,
   ButtonThanks,
   FiltersGuide,
@@ -24,6 +25,7 @@ const Guide = () => {
       </div>
       <HelperGuidePage />
       <div className={css.mainContent}>
+        {/* <AnimalPlantCard /> */}
         {animals.length === 0 && Array.from({ length: count }, (_, i) => <SkeletonsCard key={i} />)}
       </div>
       <Paginate

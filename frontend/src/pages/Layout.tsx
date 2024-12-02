@@ -12,7 +12,9 @@ const Layout = () => {
       </div>
       {url.pathname !== '/auth' &&
         url.pathname !== '/monitoring/request' &&
-        url.pathname !== '/' && <Footer />}
+        url.pathname !== '/' &&
+        url.pathname !== '/animal' &&
+        url.pathname !== '/requestuser' && <Footer />}
     </>
   );
 };

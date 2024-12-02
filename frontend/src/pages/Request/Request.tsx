@@ -24,7 +24,7 @@ const Request = () => {
             <li>Автор</li>
           </ul>
         </div>
-        <RequestInfo active={true} />
+        <RequestInfo active={true} users={true} />
       </div>
       <div className={css.procRequestContainer}>
         <button

@@ -17,3 +17,6 @@ export * from './PaperClipIcon.tsx';
 export * from './BigRedCloseIcon.tsx';
 export * from './BigAcceptIcon.tsx';
 export * from './BigEditIcon.tsx';
+export * from './CheckFalse.tsx';
+export * from './CheckTrue.tsx';
+export * from './Heart.tsx';

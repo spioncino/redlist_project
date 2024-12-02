@@ -1,0 +1,74 @@
+.ryabchikTipsContainer {
+  display: flex;
+  flex-direction: row;
+  margin-top: 38px;
+  width: 1132px;
+  height: 252px;
+  border-radius: 44px;
+  background: rgb(232, 235, 237);
+  z-index: -2;
+}
+
+.ryabchikContainer {
+  width: 380px;
+  height: 252px;
+}
+
+.ryabchikImage {
+  position: relative;
+  content: url('../../assets/RyabchikMain.png');
+  bottom: 30px;
+  border-radius: 65px;
+}
+
+.descriptionContainer {
+  padding-left: 10px;
+}
+
+.descriptionContainer h2 {
+  margin-top: 18px;
+  width: 603px;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 20px;
+}
+
+.descriptionContainer p {
+  margin-top: 23px;
+  width: 662px;
+  color: rgb(0, 0, 0);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 16px;
+}
+
+.descriptionContainer p span {
+  margin-top: 23px;
+  width: 662px;
+  color: VAR(--main-green-color);
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 16px;
+}
+
+.descriptionContainer button {
+  margin-top: 45px;
+  margin-left: 107px;
+  z-index: 2;
+  width: 365px;
+  height: 57px;
+  border-radius: 12px;
+  background: VAR(--main-green-color);
+  border: none;
+  color: rgb(255, 255, 255);
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 20px;
+  cursor: pointer;
+}
+
+.ryabchikPointerArrow {
+  position: absolute;
+  content: url('../../assets/PointerArrowTypeFive.png');
+  margin-left: 40px;
+}

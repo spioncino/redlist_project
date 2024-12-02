@@ -2,7 +2,7 @@
   width: 1132px;
   height: 63px;
   border-radius: 29px;
-  background: rgb(237, 237, 237);
+  background: VAR(--main-gray-color);
   display: flex;
   flex-direction: row;
   align-items: center;

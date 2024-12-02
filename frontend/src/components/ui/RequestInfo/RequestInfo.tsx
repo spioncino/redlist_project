@@ -17,7 +17,7 @@ type RequestInfoProps = {
   users: boolean;
 };
 
-export const RequestInfo = ({ active }: RequestInfoProps) => {
+export const RequestInfo = ({ active, users }: RequestInfoProps) => {
   const TEMP_CHECK: boolean = true;
   const TEMP_USER_CHECK: boolean = true;
 
@@ -45,7 +45,7 @@ export const RequestInfo = ({ active }: RequestInfoProps) => {
             Смотреть фотографию
           </li>
           {active ? (
-            TEMP_USER_CHECK && (
+            users && (
               <span className={css.processingRequest}>
                 <span className={css.iconsRequest}>
                   <BigRedCloseIcon />
@@ -65,7 +65,7 @@ export const RequestInfo = ({ active }: RequestInfoProps) => {
             )
           ) : (
             <span>
-              {TEMP_CHECK ? (
+              {TEMP_USER_CHECK ? (
                 <li className={css.acceptRequestStatus}>
                   <span className={css.iconsRequest}>
                     <GreenAcceptIcon />
